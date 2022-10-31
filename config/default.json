@@ -1,4 +1,6 @@
 {
     "mongiURI":"mongodb+srv://user_db:Test2508@cluster0.vgtxc.mongodb.net/?retryWrites=true&w=majority",
-    "jwtSecret":"myrandomjwtSeret1234567"
+    "jwtSecret":"myrandomjwtSeret1234567",
+    "githunclientId":"a94b87f95d8b64e48dc4",
+    "githubsecret":"97ed01d626f6524a53aec13aaf02f9638d2b7e93"
 }
