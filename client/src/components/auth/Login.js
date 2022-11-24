@@ -15,7 +15,7 @@ const Login = () => {
         
       };
   return (
-    <section class="container">
+    <section className="container">
     <div class="alert alert-danger">
       Invalid credentials
     </div>

@@ -3,10 +3,10 @@ const connectDb = require('./config/db');
 const app = express();
 
 connectDb();
-app.use(express.json({extended: false}));
-app.get('/', (req, res) => {
-res.send('Welcome to the app!');
-})
+app.use(express.json({}));
+app.get("/hello", (req, res) => res.send("Welcome to the app!"));
+
+// app.get("/", (req, res) => res.send("Hello World!"));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/auth', require('./routes/api/auth'));

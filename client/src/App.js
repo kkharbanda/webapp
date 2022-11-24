@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
@@ -10,6 +10,16 @@ import store from "./store";
 import "./App.css";
 
 export default function App() {
+  
+useEffect(() => {
+  const fetchResource = async () => {
+    const response = await fetch("/hello");
+    const responseVal = await response.text();
+    console.log(responseVal);
+  };
+
+  fetchResource();
+}, []);
   return (
     <Provider store={store}>
       <Router>
