@@ -3,7 +3,10 @@ import { setAlert } from './alert';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
- 
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
 } from './types';
 
 /*
@@ -13,6 +16,45 @@ import {
  JSON.stringify or JSON.parse
 */
 
+// Load User
+export const loadUser = () => async (dispatch) => {
+  try {
+    const res = await api.get('/auth');
+
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: AUTH_ERROR
+    });
+  }
+};
+
+export const login = (formData) => async (dispatch) => {
+  try {
+    const res = await api.post('/auth', formData);
+  
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+     
+    });
+    dispatch(loadUser());
+    
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL
+    });
+  }
+};
 
 
 // Register User
