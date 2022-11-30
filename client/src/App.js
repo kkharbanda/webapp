@@ -50,6 +50,10 @@ export default function App() {
             path="create-profile"
             element={<PrivateRoute component={createProfile} />}
           />
+          <Route
+            path="edit-profile"
+            element={<PrivateRoute component={createProfile} />}
+          />
         </Routes>
        
       </Router>

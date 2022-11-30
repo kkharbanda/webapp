@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile} from '../../actions/profile';
+import DashboardActions from './DashboardAction';
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
@@ -20,7 +21,7 @@ const Dashboard = ({
       </p>
       {profile !== null ? (
         <>
-       
+       <DashboardActions/>
 
           <div className="my-2">
             has profile
