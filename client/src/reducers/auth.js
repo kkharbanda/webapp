@@ -5,6 +5,7 @@ import {REGISTER_SUCCESS,
     // LOGIN_FAIL,
     
     LOGOUT}  from '../actions/types';
+    
 const initialState = {
     token : localStorage.getItem('token'),
     isAuthenticated : null,

@@ -10,6 +10,10 @@ import store from "./store";
 import "./App.css";
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+import Dashboard from "./components/dashboard/Dashboard";
+import createProfile from "./components/profile-forms/profileForm"
+import PrivateRoute from "./components/routing/PrivateRoute";
+import { LOGOUT } from './actions/types';
 export default function App() {
   
   useEffect(() => {
@@ -21,8 +25,12 @@ export default function App() {
     // try to fetch a user, if no token or invalid token we
     // will get a 401 response from our API
     store.dispatch(loadUser());
-}, []);
 
+    // log user out from all tabs if they log out in one tab
+    window.addEventListener('storage', () => {
+      if (!localStorage.token) store.dispatch({ type: LOGOUT });
+    });
+  }, []);
   return (
     <Provider store={store}>
       <Router>
@@ -34,6 +42,14 @@ export default function App() {
           {/* 👇️ handle dynamic path */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="dashboard"
+            element={<PrivateRoute component={Dashboard} />}
+          />
+           <Route
+            path="create-profile"
+            element={<PrivateRoute component={createProfile} />}
+          />
         </Routes>
        
       </Router>
