@@ -12,7 +12,9 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import Dashboard from "./components/dashboard/Dashboard";
 import createProfile from "./components/profile-forms/profileForm"
+import AddExperince from "./components/profile-forms/AddExperince";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import AddEducation from "./components/profile-forms/AddEducation";
 import { LOGOUT } from './actions/types';
 export default function App() {
   
@@ -53,6 +55,14 @@ export default function App() {
           <Route
             path="edit-profile"
             element={<PrivateRoute component={createProfile} />}
+          />
+          <Route
+            path="/add-experience"
+            element={<PrivateRoute component={AddExperince} />}
+          />
+          <Route
+            path="/add-education"
+            element={<PrivateRoute component={AddEducation} />}
           />
         </Routes>
        
