@@ -3,6 +3,7 @@ import {REGISTER_SUCCESS,
      USER_LOADED,
     AUTH_ERROR,LOGIN_SUCCESS,
     // LOGIN_FAIL,
+    ACCOUNT_DELETED,
     
     LOGOUT}  from '../actions/types';
     
@@ -34,6 +35,7 @@ function authReducer(state = initialState, action) {
          
                 case AUTH_ERROR:
                 case LOGOUT:
+                  case ACCOUNT_DELETED:
                   return {
                     ...state,
                     token: null,
