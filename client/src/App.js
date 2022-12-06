@@ -15,6 +15,7 @@ import createProfile from "./components/profile-forms/profileForm"
 import AddExperince from "./components/profile-forms/AddExperince";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import AddEducation from "./components/profile-forms/AddEducation";
+import Profiles from "./components/profiles/Profiles";
 import { LOGOUT } from './actions/types';
 export default function App() {
   
@@ -44,6 +45,7 @@ export default function App() {
           {/* 👇️ handle dynamic path */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="profiles" element={<Profiles />} />
           <Route
             path="dashboard"
             element={<PrivateRoute component={Dashboard} />}
