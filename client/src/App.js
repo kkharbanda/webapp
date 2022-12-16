@@ -17,6 +17,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import AddEducation from "./components/profile-forms/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/profile";
+import Posts from "./components/post/Posts";
 import { LOGOUT } from './actions/types';
 export default function App() {
   
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="profiles" element={<Profiles />} />
           <Route path="profile/:id" element={<Profile />} />
+        
           <Route
             path="dashboard"
             element={<PrivateRoute component={Dashboard} />}
@@ -68,6 +70,7 @@ export default function App() {
             path="/add-education"
             element={<PrivateRoute component={AddEducation} />}
           />
+          <Route path="posts" element={<PrivateRoute component={Posts} />} />
         </Routes>
        
       </Router>
